@@ -50,8 +50,9 @@ docker run -p 80:8080 centos
 To acess the cotianer from outsie we need its ip which can be 
 # obtained via docker inspect command
 
-
-
+#-f flag with docker build to point to a Dockerfile anywhere in your file system
+#-t for tags
+# -d to run in the deattached mode (in the background)
 
 
 
