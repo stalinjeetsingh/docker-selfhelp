@@ -1,0 +1,59 @@
+# install docker package
+sudo yum install docker -y
+
+* docker is not an operating system.It run an OS(centos,redhat) or service(httpd) as an process
+# how get the image Id and no of process running
+docker ps
+
+#To pull the image from net and run locally
+docker run centos
+#now run docker ps -a you will get image Id and other details(container Id, staus, port)
+
+# how to remove a container
+docker rm container id (which can be obtained by running container ps command)
+
+container run and finish its job and than wait in thr background but it never get clean up.that why we need to remove them.
+# to run the conatin 
+docker run centos
+
+#to clean automatically
+docker run -rm centos 
+
+#to check all images
+docker images
+
+# to check the default bevaious and to understand initla setup run below command
+docker inspect centos/or any image name 
+
+****************************************************
+#Docker can build images automatically by reading the instructions from a Dockerfile. 
+#A Dockerfile is a text document that contains all the commands a user could call on the command line 
+#to assemble an image. creat a file and name it Dockerfile 
+
+vi Dockerfile
+FROM centos
+RUN sudo yum install httpd -y
+RUN echo "hello"
+
+#run below command
+docker build .
+# we can also give name to our image
+docker build -t mycentos:lates .
+# . means my Dockerfile is in present working directory
+# now run docker images you will see mycentos there.
+# put -d to let the command run in background
+
+# contianer is not exposed to the outside world
+docker run -p 80:8080 centos 
+# 80 is server port on which we wre running docker
+#8080 is the container port
+To acess the cotianer from outsie we need its ip which can be 
+# obtained via docker inspect command
+
+
+
+
+
+
+ 
+ 
