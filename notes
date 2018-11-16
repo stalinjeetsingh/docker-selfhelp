@@ -34,6 +34,7 @@ vi Dockerfile
 FROM centos
 RUN sudo yum install httpd -y
 RUN echo "hello"
+CMD /usr/sbin/httpd
 
 #run below command
 docker build .
@@ -77,3 +78,6 @@ to run externally or to expose to outside world specifi a port option -p
 eg.docker run -d -h stalin.mydoamin.com -p 80:80 stalin1
 1st 80 port my current server port i want to open
 2nd 80 port my continer port i want to expose to outside  
+
+CMD /usr/sbin/httpd is also very important in Dockerfile as it will enable/start httpd when container launces becase we dont have option to manully start or in other 
+words we dont want to start the httpd service manully
