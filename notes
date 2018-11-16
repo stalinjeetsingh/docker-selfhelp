@@ -56,5 +56,24 @@ To acess the cotianer from outsie we need its ip which can be
 
 
 
- 
- 
+ Issues: 
+ ##initlly if docker doesnot run after installation try systemctl restart docker assuning you have 
+ ##already done sudo systemctl start docker and sudo systemctl enable docker
+ ##
+ ##in case of premission denied may be after installing dokcer you have not added the current usr to docker group
+ ## first create a group dokcer and than add user to dokcer group
+ sudo groupadd docker
+sudo usermod -a -G myusername docker
+
+if case you get issue realted with fully qualified doamin name just add -h anything.anything1.com 
+e.g docker run -h stalin.mydoamin.com 
+
+## if you contianer is getting crashed as soon as it launches you may need to specific -d option to run in deattached 
+mode (in other word run in the background and keep it running)option so run continously
+eg.docker run -d -h stalin.mydoamin.com stalin1
+stalin1 is my image name
+
+to run externally or to expose to outside world specifi a port option -p 
+eg.docker run -d -h stalin.mydoamin.com -p 80:80 stalin1
+1st 80 port my current server port i want to open
+2nd 80 port my continer port i want to expose to outside  
